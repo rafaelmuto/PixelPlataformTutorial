@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name PlayerCharacter
+
 export (int) var GRAVITY = 5
 export (int) var ADDITIONAL_FALL_GRAVITY = 2
 export (int) var JUMP_FORCE = -160
