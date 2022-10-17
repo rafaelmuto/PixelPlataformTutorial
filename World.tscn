@@ -2,9 +2,9 @@
 
 [ext_resource path="res://TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Spikes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Spikes/Spikes.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World.gd" type="Script" id=4]
-[ext_resource path="res://WalkingEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://WalkingEnemy/WalkingEnemy.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 4 )
