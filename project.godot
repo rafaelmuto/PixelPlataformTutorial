@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "PlayerCharacter",
 "language": "GDScript",
 "path": "res://Player/Player.gd"
+}, {
+"base": "Resource",
+"class": "PlayerMovementData",
+"language": "GDScript",
+"path": "res://Player/MovementData/MovementData.gd"
 } ]
 _global_script_class_icons={
-"PlayerCharacter": ""
+"PlayerCharacter": "",
+"PlayerMovementData": ""
 }
 
 [application]
