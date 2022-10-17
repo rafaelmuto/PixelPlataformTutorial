@@ -17,7 +17,7 @@ onready var animatedSprite = $AnimatedSprite
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print('Hello World!! from Player Scene...')
-	animatedSprite.frames = load("res://Player/PlayerPinkSkin.tres")
+	animatedSprite.frames = load("res://Player/PlayerGreenSkin.tres")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -34,12 +34,9 @@ func _physics_process(_delta):
 		animatedSprite.animation = 'idle'
 	else:
 		apply_acceleration(input.x)
-		animatedSprite.animation = 'run'
-		if input.x > 0:
-			animatedSprite.flip_h = true
-		elif input.x < 0:
-			animatedSprite.flip_h = false
-		
+		animatedSprite.animation = 'run'		
+		animatedSprite.flip_h = input.x > 0
+
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_up"):
 			velocity.y = JUMP_FORCE
