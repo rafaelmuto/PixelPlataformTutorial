@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Spikes/Spikes.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World.gd" type="Script" id=4]
 [ext_resource path="res://WalkingEnemy/WalkingEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Ladder.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 4 )
@@ -40,3 +41,18 @@ position = Vector2( -72, 144 )
 
 [node name="WalkingEnemy2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 9, 72 )
+
+[node name="WalkingEnemy3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 360, 54 )
+
+[node name="WalkingEnemy4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 531, -54 )
+
+[node name="Ladder" parent="." instance=ExtResource( 6 )]
+position = Vector2( -162, 108 )
+
+[node name="Ladder2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -162, 90 )
+
+[node name="Ladder3" parent="." instance=ExtResource( 6 )]
+position = Vector2( -162, 72 )
