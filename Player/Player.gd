@@ -13,7 +13,6 @@ onready var ladderCheck = $LadderCheck
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print('Player spawned!')
 	animatedSprite.frames = load("res://Player/Skin/PlayerGreenSkin.tres")
 
 
@@ -79,10 +78,7 @@ func climb_state(input):
 
 
 func is_on_ladder():
-	if not ladderCheck.is_colliding(): return false
-	var collider = ladderCheck.get_collider()
-	if not collider is Ladder: return false
-	return true
+	return ladderCheck.is_colliding()
 
 func apply_gravity():
 	velocity.y += moveData.GRAVITY

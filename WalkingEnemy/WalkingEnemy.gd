@@ -10,10 +10,6 @@ onready var ledgeCheckRight = $LedgeCheckRight
 onready var ledgeCheckLeft = $LedgeCheckLeft
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	print('WalkingEnemy here...')
-
 func _physics_process(delta):
 	
 	if is_on_wall() or not ledgeCheckRight.is_colliding() or not ledgeCheckLeft.is_colliding():
