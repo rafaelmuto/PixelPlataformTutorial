@@ -74,7 +74,7 @@ func climb_state(input):
 	else: 
 		animatedSprite.animation = 'idle'
 		
-	velocity = input * 50
+	velocity = input * moveData.CLIMB_SPEED
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 
