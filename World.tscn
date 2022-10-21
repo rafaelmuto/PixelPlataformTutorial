@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tiles/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Spikes/Spikes.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World.gd" type="Script" id=4]
 [ext_resource path="res://WalkingEnemy/WalkingEnemy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://MovingSpikeEnemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://MovingSpikeEnemy/MovingSpikeEnemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Tiles/LadderTile.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=1]
@@ -18,16 +18,11 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -9, 0, 0, 0, 0, 0, 81, 0, 0, 0, 0, 0, 81, 36, 0, 0, 0, 0, -9, 36, 0, 0, 0, 0, -9, 0, 0, 0, 0, 0, -9, 0, 0, 0, 0, 0, -9, 0 )
 }
 
-[sub_resource type="Curve2D" id=3]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 180, 27, 0, 0, 0, 0, 135, 72, 0, 0, 0, 0, 90, 36, 0, 0, 0, 0, 135, -9, 0, 0, 0, 0, 180, 27 )
-}
-
 [node name="World" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 207, 108 )
+position = Vector2( -90, -54 )
 z_index = 10
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
@@ -65,7 +60,3 @@ curve = SubResource( 1 )
 [node name="MovingSpikeEnemy2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 54, -81 )
 curve = SubResource( 2 )
-
-[node name="MovingSpikeEnemy3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 117, 36 )
-curve = SubResource( 3 )

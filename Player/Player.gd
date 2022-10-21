@@ -60,6 +60,7 @@ func move_state(input):
 			
 		# double jump
 		if Input.is_action_just_pressed("ui_up") and double_jump > 0:
+			SoundPlayer.play_sound(SoundPlayer.JUMP)
 			velocity.y = moveData.JUMP_FORCE
 			double_jump -= 1
 			# this animation is waaay too fast...
@@ -104,15 +105,21 @@ func climb_state(input):
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 
+func player_die():
+	SoundPlayer.play_sound(SoundPlayer.HIT)
+	get_tree().reload_current_scene()
+
+
 func can_jump():
 	return is_on_floor() or coyote_jump
 
 
 func input_jump():
 	if Input.is_action_just_pressed("ui_up") or buffered_jump:
-			velocity.y = moveData.JUMP_FORCE
-			buffered_jump = false
-			coyote_jump = false
+		SoundPlayer.play_sound(SoundPlayer.JUMP)
+		velocity.y = moveData.JUMP_FORCE
+		buffered_jump = false
+		coyote_jump = false
 
 
 func is_on_ladder():

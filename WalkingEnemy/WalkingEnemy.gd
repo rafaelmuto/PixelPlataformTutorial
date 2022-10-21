@@ -10,7 +10,7 @@ onready var ledgeCheckRight = $LedgeCheckRight
 onready var ledgeCheckLeft = $LedgeCheckLeft
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	if is_on_wall() or not ledgeCheckRight.is_colliding() or not ledgeCheckLeft.is_colliding():
 		direction *= -1

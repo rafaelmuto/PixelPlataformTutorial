@@ -30,6 +30,10 @@ config/name="Pixel Plataformer Tutorial"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SoundPlayer="*res://SoundPlayer.tscn"
+
 [display]
 
 window/size/width=320
