@@ -113,7 +113,8 @@ func climb_state(input):
 
 func player_die():
 	SoundPlayer.play_sound(SoundPlayer.HIT)
-	get_tree().reload_current_scene()
+	queue_free()
+	Events.emit_signal("player_died")
 
 
 func can_jump():

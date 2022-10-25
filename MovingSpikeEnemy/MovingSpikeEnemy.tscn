@@ -57,7 +57,7 @@ script = ExtResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2( 71.9981, 0 )
-offset = nan
+offset = 144.07
 rotate = false
 
 [node name="Enemy" type="Node2D" parent="PathFollow2D"]
