@@ -23,7 +23,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=3]
 resource_name = "MoveAlongPathLoop"
 length = 3.0
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("PathFollow2D:offset")
 tracks/0/interp = 1
@@ -53,10 +52,12 @@ tracks/0/keys = {
 }
 
 [node name="MovingSpikeEnemy" type="Path2D"]
+curve = null
 script = ExtResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-offset = 949.72
+position = Vector2( 71.9981, 0 )
+offset = nan
 rotate = false
 
 [node name="Enemy" type="Node2D" parent="PathFollow2D"]
@@ -72,7 +73,9 @@ region_rect = Rect2( 192, 0, 24, 24 )
 polygon = PoolVector2Array( -1, -10, 1, -10, 10, -1, 10, 1, 1, 10, -1, 10, -10, 1, -10, -1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "MoveAlongPathBounce"
+autoplay = "MoveAlongPathLoop"
+reset_on_save = false
+method_call_mode = 1
 anims/MoveAlongPathBounce = SubResource( 2 )
 anims/MoveAlongPathLoop = SubResource( 3 )
 anims/RESET = SubResource( 4 )

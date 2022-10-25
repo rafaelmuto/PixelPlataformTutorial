@@ -11,6 +11,7 @@ onready var animatedSprite = $AnimatedSprite
 onready var ladderCheck = $LadderCheck
 onready var jumpBufferTimer = $JumpBufferTimer
 onready var coyoteJumpTimer = $CoyoteJumpTimer
+onready var remoteTransform2d = $RemoteTransform2D
 
 
 var double_jump
@@ -32,6 +33,11 @@ func _physics_process(_delta):
 		MOVE: move_state(input)
 		CLIMB: climb_state(input)
 
+
+func connect_camera(camera: Camera2D) -> void:
+	var camera_path = camera.get_path()
+	remoteTransform2d.remote_path = camera_path
+	
 
 func move_state(input):
 	if is_on_ladder() and Input.is_action_pressed("ui_up"): state = CLIMB

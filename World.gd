@@ -1,16 +1,8 @@
 extends Node2D
 
+onready var camera: = $Camera2D
+onready var player: = $Player
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	VisualServer.set_default_clear_color(Color.deepskyblue)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	player.connect_camera(camera)
