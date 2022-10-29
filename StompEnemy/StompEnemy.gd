@@ -8,6 +8,7 @@ onready var start_position = global_position
 onready var rayCast2D: = $RayCast2D
 onready var timer: = $Timer
 onready var animatedSprite: = $AnimatedSprite
+onready var particles: = $Particles2D
 
 func _physics_process(delta):
 	match state:
@@ -27,6 +28,7 @@ func fall_state(delta: float):
 		position.y = collision_point.y - 9
 		state = LAND
 		timer.start(1.0)
+		particles.emitting = true
 		
 func land_state():
 	if timer.time_left == 0:
