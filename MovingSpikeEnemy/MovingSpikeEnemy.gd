@@ -5,8 +5,6 @@ enum ANIMATION_TYPE { LOOP, BOUNCE }
 
 export (ANIMATION_TYPE) var animation_type setget set_animation_type
 
-onready var animationPlayer = $AnimationPlayer
-
 func _ready():
 	play_updated_animation()
 
@@ -16,5 +14,5 @@ func set_animation_type(value):
 
 func play_updated_animation():
 	match animation_type:
-		ANIMATION_TYPE.LOOP: animationPlayer.play("MoveAlongPathLoop")
-		ANIMATION_TYPE.BOUNCE: animationPlayer.play("MoveAlongPathBounce")
+		ANIMATION_TYPE.LOOP: $AnimationPlayer.play("MoveAlongPathLoop")
+		ANIMATION_TYPE.BOUNCE: $AnimationPlayer.play("MoveAlongPathBounce")
