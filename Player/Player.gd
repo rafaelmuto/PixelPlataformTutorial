@@ -24,13 +24,13 @@ func _ready():
 	moveData = moveData as MovementData
 	double_jump = moveData.DOUBLE_JUMP_COUNT
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	var input = Vector2.ZERO
 	input.x = Input.get_axis("ui_left", "ui_right")
 	input.y = Input.get_axis("ui_up", "ui_down")
 	
 	match state:
-		MOVE: move_state(input)
+		MOVE: move_state(input, delta)
 		CLIMB: climb_state(input)
 
 
@@ -39,16 +39,16 @@ func connect_camera(camera: Camera2D) -> void:
 	remoteTransform2d.remote_path = camera_path
 	
 
-func move_state(input):
+func move_state(input: Vector2, delta: float):
 	if is_on_ladder() and Input.is_action_pressed("ui_up"): state = CLIMB
 		
-	apply_gravity()
+	apply_gravity(delta)
 	
 	if input.x == 0:
-		apply_friction()
+		apply_friction(delta)
 		animatedSprite.animation = 'idle'
 	else:
-		apply_acceleration(input.x)
+		apply_acceleration(input.x, delta)
 		animatedSprite.animation = 'run'
 		animatedSprite.flip_h = input.x > 0
 		
@@ -80,7 +80,7 @@ func move_state(input):
 		
 		# fast fall
 		if velocity.y > 0:
-			velocity.y += moveData.ADDITIONAL_FALL_GRAVITY
+			velocity.y += moveData.ADDITIONAL_FALL_GRAVITY * delta
 	
 	var was_in_air = not is_on_floor()
 	var was_on_floor = is_on_floor()
@@ -99,7 +99,7 @@ func move_state(input):
 		coyoteJumpTimer.start()
 
 
-func climb_state(input):
+func climb_state(input: Vector2):
 	if not is_on_ladder(): state = MOVE
 	
 	if input.length() != 0:
@@ -133,17 +133,17 @@ func is_on_ladder():
 	return ladderCheck.is_colliding()
 
 
-func apply_gravity():
-	velocity.y += moveData.GRAVITY
+func apply_gravity(delta: float):
+	velocity.y += moveData.GRAVITY * delta
 	velocity.y = min(velocity.y, 300)
 
 
-func apply_friction():
-	velocity.x = move_toward(velocity.x, 0, moveData.FRICTION)
+func apply_friction(delta: float):
+	velocity.x = move_toward(velocity.x, 0, moveData.FRICTION * delta)
 
 
-func apply_acceleration(amount: float):
-	velocity.x = move_toward(velocity.x, moveData.MAX_SPEED * amount, moveData.ACCELERATION)
+func apply_acceleration(amount: float, delta: float):
+	velocity.x = move_toward(velocity.x, moveData.MAX_SPEED * amount, moveData.ACCELERATION * delta)
 
 
 func _on_JumpBufferTimer_timeout():
