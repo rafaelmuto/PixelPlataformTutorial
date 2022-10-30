@@ -9,6 +9,7 @@ extents = Vector2( 6, 9 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, -12 )
+z_index = 10
 collision_layer = 2
 script = ExtResource( 2 )
 moveData = ExtResource( 3 )

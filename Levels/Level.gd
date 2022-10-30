@@ -12,7 +12,9 @@ func _ready():
 	VisualServer.set_default_clear_color(Color.deepskyblue)
 	player.connect_camera(camera)
 	player_spawn_location = player.global_position
+# warning-ignore:return_value_discarded
 	Events.connect("player_died", self, "_on_player_died")
+# warning-ignore:return_value_discarded
 	Events.connect("hit_checkpoint", self, "_on_hit_checkpoint")
 
 func _on_player_died():
